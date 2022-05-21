@@ -42,9 +42,14 @@
     border-right: solid 1px;
     border-bottom: solid 1px;
     margin-bottom: 27px;
+
+    display: flex;
+
+    align-items: center;
+
 }
 
-.drawingBody button{
+.startButton{
     background-color: #0085A1;
     color: white;
     width: 185px;
@@ -56,8 +61,32 @@
     margin-left: auto;
     margin-bottom: 27px;
     transition: all 0.3s ease 0s;
+    cursor: pointer;
 }
 
-.drawingBody button:hover{
+.startButton:hover{
     color: #FFD74B;
+}
+
+.chooseColor{
+    width: 484px;
+    margin-left: 36px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.colorbutton{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid 1px;
+    cursor: pointer;
+}
+
+.Line{
+    width: 64px;
+    border: 0;
+    height: 1px;
+    background-color: black;
+    transform: rotate(90deg);
 }
