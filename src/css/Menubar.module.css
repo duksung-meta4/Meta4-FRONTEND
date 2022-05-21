@@ -1,0 +1,64 @@
+@media (min-width : 1440px){
+    .menubarBody{
+        justify-content: center;
+        width: 1440px;
+    }
+}
+
+/* menubar 로고*/
+.logo{
+    font-family: 'OpenSans-Bold';
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.menubarBody{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.menubarBody ul li{
+    font-size: 18px;
+    font-family: 'OpenSans-Regular';
+}
+
+.menubarBody li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.menubarBody li a {
+    color: black;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+.menubarBody li a:hover {
+    color: #0085A1;
+}
+
+.menubarBody button {
+    font-size: 18px;
+    background-color: #0085A1;
+    width: 170px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.menubarBody button:hover{
+    background-color: white;
+    border: solid;
+    border-color: #0085A1;
+    color: #0085A1;
+}

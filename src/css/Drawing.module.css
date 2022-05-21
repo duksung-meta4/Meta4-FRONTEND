@@ -1,0 +1,63 @@
+.logo{
+    font-family: 'OpenSans-Bold';
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.semiMenu{
+    width: 1440px;
+    margin: 20px auto;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.drawingBody{
+    background-color: #D9D7D7;
+    width: 1440px;
+    margin: 0 auto 0 auto;
+    padding-top: 34px;
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.drawingBody p{
+    font-family: 'NotoSansKR-Bold';
+    font-size: 25px;
+    margin-bottom: 34px;
+}
+
+.drawingBoard{
+    background-color: white;
+    border: solid 1px;
+}
+
+.drawingTools{
+    height: 80px;
+    background-color: white;
+    border-left: solid 1px;
+    border-right: solid 1px;
+    border-bottom: solid 1px;
+    margin-bottom: 27px;
+}
+
+.drawingBody button{
+    background-color: #0085A1;
+    color: white;
+    width: 185px;
+    height: 47px;
+    font-family: 'OpenSans-Bold';
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-bottom: 27px;
+    transition: all 0.3s ease 0s;
+}
+
+.drawingBody button:hover{
+    color: #FFD74B;
+}

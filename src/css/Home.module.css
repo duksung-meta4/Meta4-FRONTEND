@@ -1,0 +1,20 @@
+.content{
+    width: 1440px;
+    margin: 0 auto 0 auto;
+}
+
+.gate{
+    background-image: url('../img/GateImg.svg');
+    background-size: auto 960px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 960px;
+}
+
+.gate h1{
+    color: white;
+    font-size: 75px;
+}

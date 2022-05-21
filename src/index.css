@@ -11,3 +11,122 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 영어폰트는 OpenSans */
+@font-face {
+  font-family: "OpenSans-Bold";
+  font-display: fallback;
+
+  src: url('./font/OpenSans-Bold.ttf') format('truetype');
+
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans-ExtraBold";
+  font-display: fallback;
+  
+  src: url('./font/OpenSans-ExtraBold.ttf') format('truetype');
+
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans-Light";
+  font-display: fallback;
+  
+  src: url('./font/OpenSans-Light.ttf') format('truetype');
+
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans-Medium";
+  font-display: fallback;
+  
+  src: url('./font/OpenSans-Medium.ttf') format('truetype');
+
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans-Regular";
+  font-display: fallback;
+  
+  src: url('./font/OpenSans-Regular.ttf') format('truetype');
+
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans-SemiBold";
+  font-display: fallback;
+  
+  src: url('./font/OpenSans-SemiBold.ttf') format('truetype');
+
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* 한국어폰트는 NotoSans */
+@font-face {
+  font-family: "NotoSansKR-Black";
+  font-display: fallback;
+  
+  src: url('./font/NotoSansKR-Black.otf') format('opentype');
+
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSansKR-Bold";
+  font-display: fallback;
+  
+  src: url('./font/NotoSansKR-Bold.otf') format('opentype');
+
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSansKR-Light";
+  font-display: fallback;
+  
+  src: url('./font/NotoSansKR-Light.otf') format('opentype');
+
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSansKR-Medium";
+  font-display: fallback;
+  
+  src: url('./font/NotoSansKR-Medium.otf') format('opentype');
+
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSansKR-Regular";
+  font-display: fallback;
+  
+  src: url('./font/NotoSansKR-Regular.otf') format('opentype');
+
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSansKR-Thin";
+  font-display: fallback;
+  
+  src: url('./font/NotoSansKR-Thin.otf') format('opentype');
+
+  font-weight: 100;
+  font-style: normal;
+}
