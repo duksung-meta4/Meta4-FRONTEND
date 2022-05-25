@@ -9,6 +9,10 @@ const Drawing = () => {
   const goHomepage = () => {
     navigate("/");
   };
+  const goShowpage=() =>{
+    navigate("/showing");
+  };
+
   return (
     <div>
       {/* 메뉴바 */}
@@ -93,7 +97,7 @@ const Drawing = () => {
           </div>
         </div>
         {/* 버튼 */}
-        <button type="button" className={styles.startButton}>
+        <button type="button" className={styles.startButton} onClick={goShowpage}>
           Start making!
         </button>
       </div>
