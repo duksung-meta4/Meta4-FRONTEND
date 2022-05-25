@@ -13,14 +13,13 @@ const Showing = () => {
     };
     async function onSubmit(event) {
         event.preventDefault();
-    
-        const response=await axios.get('/',{
+        
+        const response=await axios.get('/',{ // node에 content를 보내야 한다/.
             content:lyricInput
         })
         .then((res)=>{
             console.log("Success");
             setLyricInput("");
-  
         })
         .catch((error)=>{
             console.log("Network Error : ",error);
@@ -29,7 +28,7 @@ const Showing = () => {
         console.log(response);
         console.log(response.data);
   
-        setResult();
+        setResult(response.data);
         setLyricInput("");
       }
 
