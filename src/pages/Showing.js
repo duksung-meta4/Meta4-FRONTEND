@@ -14,22 +14,17 @@ const Showing = () => {
     async function onSubmit(event) {
         event.preventDefault();
         
-        const response=await axios.get('/',{ // node에 content를 보내야 한다/.
-            content:lyricInput
-        })
-        .then((res)=>{
-            console.log("Success");
-            setLyricInput("");
-        })
-        .catch((error)=>{
-            console.log("Network Error : ",error);
-        });
+        axios
+            .post("/", { content: lyricInput })
+            .then((res) => {
+                console.log("Success");
+                setResult(res.data);
+                setLyricInput("");
+            })
+            .catch((error) => {
+              console.log("Network Error : ", error);
+            });
         
-        console.log(response);
-        console.log(response.data);
-  
-        setResult(response.data);
-        setLyricInput("");
       }
 
 
