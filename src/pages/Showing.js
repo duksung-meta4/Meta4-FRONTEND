@@ -12,26 +12,16 @@ const Showing = () => {
     navigate("/");
   };
 
+  //hook으로 감쌀 예정
+  //useCallback 쓸듯
   async function onSubmit(event) {
     event.preventDefault();
 
-    // const response=await axios.get('/',{ // node에 content를 보내야 한다/.
-    //     content:lyricInput
-    // })
-    // .then((res)=>{
-    //     console.log("Success");
-    //     setLyricInput("");
-    // })
-    // .catch((error)=>{
-    //     console.log("Network Error : ",error);
-    // });
-
     axios
-      .post("/", { content: lyricInput })
+      .post("http://localhost:5000/test", { content: "허수아비가" })
       .then((res) => {
         console.log("Success");
-        setResult(res.data);
-        setLyricInput("");
+        console.log(res);
       })
       .catch((error) => {
         console.log("Network Error : ", error);
