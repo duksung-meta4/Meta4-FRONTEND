@@ -1,0 +1,29 @@
+.logo{
+    font-family: 'OpenSans-Bold';
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.semiMenu{
+    width: 1440px;
+    margin: 20px auto;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.drawingBody{
+    background-color: #D9D7D7;
+    margin: 0 auto 0 auto;
+    padding-top: 34px;
+    padding-bottom: 34px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.drawingBody p{
+    font-family: 'NotoSansKR-Bold';
+    font-size: 25px;
+    margin-bottom: 34px;
+}
