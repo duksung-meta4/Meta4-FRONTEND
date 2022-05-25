@@ -57,7 +57,7 @@ const Drawing2 = () => {
       console.log(results);
       labelSpan.html(results[0].label);
       confidenceSpan.html(Math.floor(100 * results[0].confidence));
-      //classifier.classify(canvas, gotResult);
+      classifier.classify(canvas, gotResult);
     };
   };
 

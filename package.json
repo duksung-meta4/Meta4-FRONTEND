@@ -7,11 +7,15 @@
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "ml5": "0.12.2",
+    "axios": "^0.27.2",
+    "global": "^4.4.0",
+    "http-proxy-middleware": "^2.0.6",
+    "i": "^0.3.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-p5-wrapper": "3.3.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
