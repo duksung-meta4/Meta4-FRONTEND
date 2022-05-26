@@ -1,11 +1,13 @@
-import { React, useState } from "react";
+import { React, useCallback, useEffect, useState } from "react";
 import styles from "../css/Showing.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { findPrompts } from "../data/prompts.js";
 
 const Showing = () => {
   const [lyricInput, setLyricInput] = useState("");
   const [result, setResult] = useState();
+  const [prompts, setPrompts]=useState([]); //추천 prompt
 
   const navigate = useNavigate();
   const goHomepage = () => {
@@ -30,6 +32,12 @@ const Showing = () => {
       });
   }
 
+  
+    useEffect(()=>{
+      setPrompts(findPrompts(lyricInput))
+    },[lyricInput])
+
+
   return (
     <div>
       {/* 메뉴바 */}
@@ -51,17 +59,25 @@ const Showing = () => {
             placeholder="그림 그리면 자동으로 채워짐"
             className={styles.showingInput}
             value={lyricInput}
-            onChange={(e) => setLyricInput(e.target.value)}
+            onChange={useCallback(
+              (e) => {
+                setLyricInput(e.target.value);
+              },[]
+            )}
           />
           <input
             type="submit"
             className={styles.showingBtn}
             value="Generate Music🎼"
           />
+          <br></br>
+          <br></br>
+          <div className={styles.showingPrompts}>
+            {prompts.map((i) => <button key={i} onClick={(e)=> {setLyricInput(e.target.innerText)} }>{i}</button>)}
+          </div>
         </form>
         <br></br>
-        <br></br>
-        <br></br>
+        
         <div>
           <p className={styles.result}>{result}</p>
         </div>
