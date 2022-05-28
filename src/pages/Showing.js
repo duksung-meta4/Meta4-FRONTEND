@@ -1,8 +1,11 @@
 import { React, useCallback, useEffect, useState } from "react";
+import { useScript } from 'hooks';
 import styles from "../css/Showing.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { findPrompts } from "../data/prompts.js";
+import { playRNN } from "../data/compose.js";
+
 
 const Showing = () => {
   const [lyricInput, setLyricInput] = useState("");
@@ -14,11 +17,13 @@ const Showing = () => {
     navigate("/");
   };
 
+  const status = useScript("https://cdn.jsdelivr.net/npm/@magenta/music@1.18.1");
+
   //hook으로 감쌀 예정
   //useCallback 쓸듯
   async function onSubmit(event) {
     event.preventDefault();
-
+    
     axios
       .post("http://localhost:5000/gpt", { content: `${lyricInput}` })
       .then((res) => {
@@ -30,6 +35,9 @@ const Showing = () => {
       .catch((error) => {
         console.log("Network Error : ", error);
       });
+
+      playRNN(event);
+
   }
 
   useEffect(()=>{
