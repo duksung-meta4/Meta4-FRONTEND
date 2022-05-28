@@ -81,11 +81,26 @@ const Drawing2 = () => {
       }
 
       // console.log(results[0].confidence);
-      console.log(labelSpan1);
+      // console.log(final_keyword);
+      // console.log(labelSpan1);
 
       final_keyword.html(results[0].label);
-      console.log(results[0].label);
-      labelSpan1.p5.html(results[0].label);
+
+      labelSpan1.html(results[0].label);
+      confidenceSpan1.html(Math.floor(100 * results[0].confidence));
+
+      labelSpan2.html(results[1].label);
+      confidenceSpan2.html(Math.floor(100 * results[1].confidence));
+
+      labelSpan3.html(results[2].label);
+      confidenceSpan3.html(Math.floor(100 * results[2].confidence));
+
+      labelSpan4.html(results[3].label);
+      confidenceSpan4.html(Math.floor(100 * results[3].confidence));
+
+      labelSpan5.html(results[4].label);
+      confidenceSpan5.html(Math.floor(100 * results[4].confidence));
+
       classifier.classify(canvas, gotResult);
     };
   };
@@ -101,7 +116,7 @@ const Drawing2 = () => {
 
       {/* content영역 */}
       <div className={styles.drawingBody}>
-        <p>🎨 자유롭게 그림을 그려주세요!</p>
+        <p className={styles.title}>🎨 자유롭게 그림을 그려주세요!</p>
         <div className={styles.palette}>
           <div className={styles.colorpalette}>
             <div
@@ -150,8 +165,24 @@ const Drawing2 = () => {
           그리셨군요!
         </p>
         <p className={styles.resultRanking}>
-          <span id="#label_1"></span>
+          <button style={{ backgroundColor: "#EB8287" }}>
+            <span id="label_1"></span>(<span id="confidence1"></span>%)
+          </button>
+          <button style={{ backgroundColor: "#FF8F60" }}>
+            <span id="label_2"></span>(<span id="confidence2"></span>%)
+          </button>
+          <button style={{ backgroundColor: "#FFF279" }}>
+            <span id="label_3"></span>(<span id="confidence3"></span>%)
+          </button>
+          <button style={{ backgroundColor: "#1DDDC4" }}>
+            <span id="label_4"></span>(<span id="confidence4"></span>%)
+          </button>
+          <button style={{ backgroundColor: "#54ACFE" }}>
+            <span id="label_5"></span>(<span id="confidence5"></span>%)
+          </button>
         </p>
+        <p className={styles.letstart}>작사를 시작하겠습니다</p>
+        <button className={styles.makeLyricsBT}>Start making</button>
       </div>
     </div>
   );
