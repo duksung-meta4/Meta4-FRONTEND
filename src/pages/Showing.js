@@ -32,10 +32,9 @@ const Showing = () => {
       });
   }
 
-  
-    useEffect(()=>{
-      setPrompts(findPrompts(lyricInput))
-    },[lyricInput])
+  useEffect(()=>{
+    setPrompts(findPrompts(lyricInput))
+  },[lyricInput])
 
 
   return (
