@@ -1,5 +1,5 @@
 import { React, useCallback, useEffect, useState } from "react";
-import { useScript } from 'hooks';
+//import { useScript } from 'hooks';
 import styles from "../css/Showing.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ const Showing = () => {
     navigate("/");
   };
 
-  const status = useScript("https://cdn.jsdelivr.net/npm/@magenta/music@1.18.1");
+  //const status = useScript("https://cdn.jsdelivr.net/npm/@magenta/music@1.18.1");
 
   //hook으로 감쌀 예정
   //useCallback 쓸듯

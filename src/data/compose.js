@@ -3,6 +3,7 @@
 // everywhere instead.
 
 // These are all variables used in the demos.
+import * as mm from '@magenta/music';
 
 // 동요 6곡 변수 선언
 
@@ -422,7 +423,7 @@ function setupMusicRNN() {
 }
 
 // 설정한 모델로 작곡하는 함수
-function playRNN(event) {
+export function playRNN(event) {
   if (rnnPlayer.isPlaying()) {
     rnnPlayer.stop();
     event.target.textContent = 'Play';
