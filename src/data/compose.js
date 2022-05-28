@@ -5,6 +5,10 @@
 // These are all variables used in the demos.
 
 // 동요 6곡 변수 선언
+
+import * as mm from "@magenta/music";
+
+
 var YOGI, ZOO, ELEPHANT, WHITE_COUNTRY, SNOW, PIG;
 
 var music_rnn, rnnPlayer;
@@ -399,7 +403,7 @@ function createSampleSequences() {    // 동요 6곡 sequences
 
 }
 
-//const mm = window.mm
+
 
 // 생성할 곡의 길이 
 var rnn_steps = 100;  // How many steps to continue.
