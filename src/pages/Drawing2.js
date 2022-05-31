@@ -14,11 +14,44 @@ const Drawing2 = () => {
     navigate("/");
   };
 
+  const handleClick = (e) => {
+    //console.log(e.currentTarget);
+    //console.log(parseInt(e.currentTarget.value));
+    //console.log(document.getElementById("reuslt").innerText);
+
+    let wow = document.getElementById("wow");
+    let ment = document.getElementById("ment");
+
+    ment.style.display = "none";
+    wow.style.display = "block";
+
+    let choice_num = parseInt(e.currentTarget.value);
+    if (choice_num === 1) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_1").textContent;
+    } else if (choice_num === 2) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_2").textContent;
+    } else if (choice_num === 3) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_3").textContent;
+    } else if (choice_num === 4) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_4").textContent;
+    } else if (choice_num === 5) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_5").textContent;
+    }
+  };
+
+  const handleChange = (e) => {
+    console.log("변하는 중");
+  };
+
   const sketch = (p5) => {
     let classifier;
     let canvas;
     let clearButton;
-    let final_keyword;
     let labelSpan1, labelSpan2, labelSpan3, labelSpan4, labelSpan5;
     let confidenceSpan1,
       confidenceSpan2,
@@ -42,8 +75,6 @@ const Drawing2 = () => {
       clearButton.mousePressed(p5.clearCanvas);
 
       //결과
-
-      final_keyword = p5.select("#final_keyword");
 
       labelSpan1 = p5.select("#label_1");
       confidenceSpan1 = p5.select("#confidence1");
@@ -83,8 +114,6 @@ const Drawing2 = () => {
       // console.log(results[0].confidence);
       // console.log(final_keyword);
       // console.log(labelSpan1);
-
-      final_keyword.html(results[0].label);
 
       labelSpan1.html(results[0].label);
       confidenceSpan1.html(Math.floor(100 * results[0].confidence));
@@ -160,26 +189,52 @@ const Drawing2 = () => {
           </div>
         </div>
         <ReactP5Wrapper sketch={sketch}></ReactP5Wrapper>
-        <p className={styles.drawresult}>
-          <span id="final_keyword" style={{ color: "#0085A1" }}></span> 을
-          그리셨군요!
-        </p>
         <p className={styles.resultRanking}>
-          <button style={{ backgroundColor: "#EB8287" }}>
-            <span id="label_1"></span>(<span id="confidence1"></span>%)
+          <button
+            style={{ backgroundColor: "#EB8287" }}
+            onClick={handleClick}
+            value={1}
+          >
+            <span id="label_1" onChange={handleChange}></span>(
+            <span id="confidence1"></span>%)
           </button>
-          <button style={{ backgroundColor: "#FF8F60" }}>
+          <button
+            style={{ backgroundColor: "#FF8F60" }}
+            onClick={handleClick}
+            value={2}
+          >
             <span id="label_2"></span>(<span id="confidence2"></span>%)
           </button>
-          <button style={{ backgroundColor: "#FFF279" }}>
+          <button
+            style={{ backgroundColor: "#FFF279" }}
+            onClick={handleClick}
+            value={3}
+          >
             <span id="label_3"></span>(<span id="confidence3"></span>%)
           </button>
-          <button style={{ backgroundColor: "#1DDDC4" }}>
+          <button
+            style={{ backgroundColor: "#1DDDC4" }}
+            onClick={handleClick}
+            value={4}
+          >
             <span id="label_4"></span>(<span id="confidence4"></span>%)
           </button>
-          <button style={{ backgroundColor: "#54ACFE" }}>
+          <button
+            style={{ backgroundColor: "#54ACFE" }}
+            onClick={handleClick}
+            value={5}
+          >
             <span id="label_5"></span>(<span id="confidence5"></span>%)
           </button>
+        </p>
+        <p className={styles.drawresult}>
+          <span id="wow" style={{ display: "none" }}>
+            <span style={{ color: "#0085A1" }} id="reuslt">
+              line
+            </span>
+            을 그리셨군요!
+          </span>
+          <span id="ment">무엇을 그리셨나요? 5개 중 선택해주세요.</span>
         </p>
         <p className={styles.letstart}>작사를 시작하겠습니다</p>
         <button className={styles.makeLyricsBT}>Start making</button>
