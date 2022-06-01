@@ -1,23 +1,29 @@
 import { React, useCallback, useEffect, useState } from "react";
-//import { useScript } from 'hooks';
 import styles from "../css/Showing.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { findPrompts } from "../data/prompts.js";
 import { playRNN } from "../data/compose.js";
-
+import { getKeyword } from "../Keyword";
 
 const Showing = () => {
   const [lyricInput, setLyricInput] = useState("");
   const [result, setResult] = useState();
-  const [prompts, setPrompts]=useState([]); //추천 prompt
+  const [keyword, setKeyword] = useState();
 
   const navigate = useNavigate();
   const goHomepage = () => {
     navigate("/");
   };
 
-  //const status = useScript("https://cdn.jsdelivr.net/npm/@magenta/music@1.18.1");
+  useEffect(() => {
+    setKeyword(getKeyword());
+    console.log(keyword);
+
+    if (keyword === "pig") {
+      setLyricInput("돼지");
+    }
+  }, [keyword]);
 
   //hook으로 감쌀 예정
   //useCallback 쓸듯
@@ -63,7 +69,6 @@ const Showing = () => {
           <input
             type="text"
             name="lyric"
-            placeholder="그림 그리면 자동으로 채워짐"
             className={styles.showingInput}
             value={lyricInput}
             onChange={useCallback(

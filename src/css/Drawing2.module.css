@@ -1,29 +1,110 @@
-.logo{
-    font-family: 'OpenSans-Bold';
-    font-size: 35px;
-    cursor: pointer;
+@media (min-width: 1130px) {
+  .semiMenu {
+    width: 1130px;
+  }
 }
 
-.semiMenu{
-    width: 1440px;
-    margin: 20px auto;
-    padding-left: 100px;
-    padding-right: 100px;
+.logo {
+  font-family: "OpenSans-Bold";
+  font-size: 35px;
+  cursor: pointer;
 }
 
-.drawingBody{
-    background-color: #D9D7D7;
-    margin: 0 auto 0 auto;
-    padding-top: 34px;
-    padding-bottom: 34px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
+.semiMenu {
+  display: flex;
+  margin: 35px auto;
+  padding: 0 70px;
 }
 
-.drawingBody p{
-    font-family: 'NotoSansKR-Bold';
-    font-size: 25px;
-    margin-bottom: 34px;
+.drawingBody {
+  width: 1130px;
+  background-color: #d9d7d7;
+  margin: 0 auto 0 auto;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.title{
+  font-family: "NotoSansKR-Bold";
+  font-size: 25px;
+  margin-bottom: 34px;
+}
+
+.palette {
+  width: 380px;
+  height: 130px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.colorpalette {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.colorpalette div {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.toolpalette {
+  display: flex;
+  justify-content: center;
+}
+
+.toolpalette img {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.drawresult {
+  font-family: "NotoSansKR-Regular";
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+.resultRanking{
+  margin-top: 30px;
+}
+
+.resultRanking button {
+  width: 160px;
+  height: 40px;
+  border: none;
+  font-family: "NotoSansKR-Medium";
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.letstart{
+  font-family: "NotoSansKR-Regular";
+  font-size: 20px;
+  margin: 30px 0;
+}
+
+.makeLyricsBT{
+  background-color: #0085A1;
+  border-radius: 10px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  width: 300px;
+  height: 47px;
+  border: none;
+  font-family: "OpenSans-Bold";
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.makeLyricsBT:hover{
+  color: #FFD74B;
 }
