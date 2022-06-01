@@ -20,6 +20,7 @@ const Drawing2 = () => {
     let clearButton;
     let final_keyword;
     let labelSpan1, labelSpan2, labelSpan3, labelSpan4, labelSpan5;
+    let stopButton;
     let confidenceSpan1,
       confidenceSpan2,
       confidenceSpan3,
@@ -59,7 +60,22 @@ const Drawing2 = () => {
 
       labelSpan5 = p5.select("#label_5");
       confidenceSpan5 = p5.select("#confidence5");
+
+      //버튼
+
+      stopButton = p5.select("#stopButton");
+    // stopButton.addEventListener("click", p5.noLoop());
+      stopButton.keyPressed(p5.noLoop());
     };
+
+ 
+
+    stopButton = document.getElementById("#stopButton");
+
+
+    stopButton.onClick(p5.noLoop());
+
+    
 
     p5.clearCanvas = () => {
       p5.background(255);
@@ -182,7 +198,9 @@ const Drawing2 = () => {
           </button>
         </p>
         <p className={styles.letstart}>작사를 시작하겠습니다</p>
-        <button className={styles.makeLyricsBT}>Start making</button>
+        <button className={styles.makeLyricsBT} id="stopButton">
+          Start making
+        </button>
       </div>
     </div>
   );
