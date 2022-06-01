@@ -13,6 +13,9 @@ const Drawing2 = () => {
   const goHomepage = () => {
     navigate("/");
   };
+  const goShowpage = () => {
+    navigate("/showing");
+  };
 
   const sketch = (p5) => {
     let classifier;
@@ -43,7 +46,6 @@ const Drawing2 = () => {
       clearButton.mousePressed(p5.clearCanvas);
 
       //결과
-
       final_keyword = p5.select("#final_keyword");
 
       labelSpan1 = p5.select("#label_1");
@@ -61,21 +63,13 @@ const Drawing2 = () => {
       labelSpan5 = p5.select("#label_5");
       confidenceSpan5 = p5.select("#confidence5");
 
-      //버튼
-
       stopButton = p5.select("#stopButton");
-    // stopButton.addEventListener("click", p5.noLoop());
-      stopButton.keyPressed(p5.noLoop());
+      stopButton.mousePressed(knockitoff);
     };
 
- 
-
-    stopButton = document.getElementById("#stopButton");
-
-
-    stopButton.onClick(p5.noLoop());
-
-    
+    function knockitoff(){
+      p5.noLoop();
+    }
 
     p5.clearCanvas = () => {
       p5.background(255);
@@ -95,10 +89,6 @@ const Drawing2 = () => {
       if (error) {
         console.error(error);
       }
-
-      // console.log(results[0].confidence);
-      // console.log(final_keyword);
-      // console.log(labelSpan1);
 
       final_keyword.html(results[0].label);
 
@@ -198,7 +188,7 @@ const Drawing2 = () => {
           </button>
         </p>
         <p className={styles.letstart}>작사를 시작하겠습니다</p>
-        <button className={styles.makeLyricsBT} id="stopButton">
+        <button className={styles.makeLyricsBT}id="stopButton"onClick={goShowpage}>
           Start making
         </button>
       </div>
