@@ -69,6 +69,7 @@ const Drawing2 = () => {
       confidenceSpan3,
       confidenceSpan4,
       confidenceSpan5;
+    let stopbutton;
 
     p5.preload = () => {
       classifier = ml5.imageClassifier("DoodleNet", () => {
@@ -101,7 +102,16 @@ const Drawing2 = () => {
 
       labelSpan5 = p5.select("#label_5");
       confidenceSpan5 = p5.select("#confidence5");
+
+      //noLoop()버튼
+      stopbutton = p5.select("#stopbutton");
+      stopbutton.mousePressed(knockitoff);
     };
+
+    function knockitoff() {
+      console.log("멈춰!!");
+      p5.noLoop();
+    }
 
     p5.clearCanvas = () => {
       p5.background(255);
@@ -247,7 +257,11 @@ const Drawing2 = () => {
           <span id="ment">무엇을 그리셨나요? 5개 중 선택해주세요.</span>
         </p>
         <p className={styles.letstart}>작사를 시작하겠습니다</p>
-        <button className={styles.makeLyricsBT} onClick={goShowpage}>
+        <button
+          id="stopbutton"
+          className={styles.makeLyricsBT}
+          onClick={goShowpage}
+        >
           Start making
         </button>
       </div>
