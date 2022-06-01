@@ -1,14 +1,15 @@
 import { React, useCallback, useEffect, useState } from "react";
-import styles from "../css/Showing.module.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { findPrompts } from "../data/prompts.js";
 import { playRNN } from "../data/compose.js";
+import styles from "../css/Showing.module.css";
+import axios from "axios";
 import { getKeyword } from "../Keyword";
 
 const Showing = () => {
   const [lyricInput, setLyricInput] = useState("");
   const [result, setResult] = useState();
+  const [prompts, setPrompts] = useState([]); //추천 prompt
   const [keyword, setKeyword] = useState();
 
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ const Showing = () => {
 
   useEffect(() => {
     setKeyword(getKeyword());
-    console.log(keyword);
 
     if (keyword === "pig") {
       setLyricInput("돼지");
@@ -29,27 +29,25 @@ const Showing = () => {
   //useCallback 쓸듯
   async function onSubmit(event) {
     event.preventDefault();
-    
+
     axios
       .post("http://localhost:5000/gpt", { content: `${lyricInput}` })
       .then((res) => {
         console.log("Success");
         console.log(res.data);
-        const result=res.data.substr(7);
+        const result = res.data.substr(7);
         setResult(result);
       })
       .catch((error) => {
         console.log("Network Error : ", error);
       });
 
-      playRNN(event);
-
+    playRNN();
   }
 
-  useEffect(()=>{
-    setPrompts(findPrompts(lyricInput))
-  },[lyricInput])
-
+  useEffect(() => {
+    setPrompts(findPrompts(lyricInput));
+  }, [lyricInput]);
 
   return (
     <div>
@@ -71,11 +69,9 @@ const Showing = () => {
             name="lyric"
             className={styles.showingInput}
             value={lyricInput}
-            onChange={useCallback(
-              (e) => {
-                setLyricInput(e.target.value);
-              },[]
-            )}
+            onChange={useCallback((e) => {
+              setLyricInput(e.target.value);
+            }, [])}
           />
           <input
             type="submit"
@@ -85,11 +81,20 @@ const Showing = () => {
           <br></br>
           <br></br>
           <div className={styles.showingPrompts}>
-            {prompts.map((i) => <button key={i} onClick={(e)=> {setLyricInput(e.target.innerText)} }>{i}</button>)}
+            {prompts.map((i) => (
+              <button
+                key={i}
+                onClick={(e) => {
+                  setLyricInput(e.target.innerText);
+                }}
+              >
+                {i}
+              </button>
+            ))}
           </div>
         </form>
         <br></br>
-        
+
         <div>
           <p className={styles.result}>{result}</p>
         </div>

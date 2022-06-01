@@ -19,8 +19,8 @@
     "react-p5-wrapper": "^3.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
-    "typescript": "^4.7.2",
     "recoil": "0.7.3-alpha.2",
+    "typescript": "^4.7.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
