@@ -1,70 +1,72 @@
-.logo{
-    font-family: 'OpenSans-Bold';
-    font-size: 35px;
-    cursor: pointer;
+.logo {
+  font-family: "OpenSans-Bold";
+  font-size: 35px;
+  cursor: pointer;
 }
-.semiMenu{
-    width: 1440px;
-    margin: 20px auto;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
-.showingBody{
-    background-color: #cac2c6;
-    width: 1440px;
-    height: 1000px;
-    margin: 0 auto 0 auto;
-    padding-top: 34px;
-    display: flex;
-    justify-content: center;
-    padding-left: 100px;
-    padding-right: 100px;
-    flex-direction: column;
-    text-align: center;
+.semiMenu {
+  width: 1440px;
+  margin: 20px auto;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
-.showingBody p{
-    font-family: 'NotoSansKR-Bold';
-    font-size: 25px;
-    margin-bottom: 34px;
+.showingBody {
+  background-color: rgb(246, 246, 212);
+  width: 1440px;
+  height: 1000px;
+  margin: 0 auto 0 auto;
+  padding-top: 34px;
+  display: flex;
+  justify-content: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.showingBody p {
+  font-family: "NotoSansKR-Bold";
+  font-size: 25px;
+  margin-bottom: 34px;
 }
 
 .showingInput {
-    width : 500px;
-    height : 40px;
-    font-size : 25px;
+  width: 500px;
+  height: 40px;
+  font-size: 25px;
 }
 
 .showingBtn {
-    width : 300px;
-    height : 50px;
-    font-size : 25px;
+  width: 300px;
+  height: 50px;
+  font-size: 25px;
+  color: white;
+  background: #0085a1;
 }
 
-.result{
-    font-family: 'NotoSansKR-Bold';
-    font-size: 25px;
-    margin-bottom: 34px;
-    white-space: pre-wrap;
-    line-height: 50px;
-    color:rgba(249, 245, 245, 0.861);
+.result {
+  font-family: "NotoSansKR-Bold";
+  font-size: 25px;
+  margin-bottom: 34px;
+  white-space: pre-wrap;
+  line-height: 50px;
+  color: rgba(249, 245, 245, 0.861);
 }
 
-.showingPrompts button{
-    width: 307px;
-    height: 59px;
-    left: 437px;
-    top: 681px;
-    background: #f09bc2;
-    mix-blend-mode: color-burn;
-    border: 1px solid #f1f0f0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin: 0;
-    padding: 0.5rem 1rem;
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 25px;
-    margin-bottom: 34px;
-    white-space: pre-wrap;
-    line-height: 30px;
+.showingPrompts button {
+  width: 307px;
+  height: 59px;
+  left: 437px;
+  top: 681px;
+  background: #edbee6;
+  /* mix-blend-mode: color-burn; */
+  border: 1px solid #f1f0f0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 25px;
+  margin-bottom: 34px;
+  white-space: pre-wrap;
+  line-height: 30px;
 }

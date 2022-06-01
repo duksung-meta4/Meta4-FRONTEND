@@ -41,9 +41,11 @@ const Showing = () => {
       .catch((error) => {
         console.log("Network Error : ", error);
       });
-
-    playRNN();
   }
+
+  // const handleClick = () => {
+  //   playRNN();
+  // };
 
   useEffect(() => {
     setPrompts(findPrompts(lyricInput));
@@ -76,8 +78,9 @@ const Showing = () => {
           <input
             type="submit"
             className={styles.showingBtn}
-            value="Generate Music🎼"
+            value="Generate Lyrics🎼"
           />
+
           <br></br>
           <br></br>
           <div className={styles.showingPrompts}>
