@@ -1,16 +1,27 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import styles from "../css/Showing.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getKeyword } from "../Keyword";
 
 const Showing = () => {
   const [lyricInput, setLyricInput] = useState("");
   const [result, setResult] = useState();
+  const [keyword, setKeyword] = useState();
 
   const navigate = useNavigate();
   const goHomepage = () => {
     navigate("/");
   };
+
+  useEffect(() => {
+    setKeyword(getKeyword());
+    console.log(keyword);
+
+    if (keyword === "pig") {
+      setLyricInput("돼지");
+    }
+  }, [keyword]);
 
   //hook으로 감쌀 예정
   //useCallback 쓸듯
@@ -46,7 +57,6 @@ const Showing = () => {
           <input
             type="text"
             name="lyric"
-            placeholder="그림 그리면 자동으로 채워짐"
             className={styles.showingInput}
             value={lyricInput}
             onChange={(e) => setLyricInput(e.target.value)}

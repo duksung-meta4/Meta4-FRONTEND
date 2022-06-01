@@ -7,12 +7,20 @@ import pen from "../img/pen.png";
 import eraser from "../img/eraser.png";
 import fill from "../img/fill.png";
 import trash from "../img/trash.png";
+import { setKeyword } from "../Keyword";
 
 const Drawing2 = () => {
   const navigate = useNavigate();
+
   const goHomepage = () => {
     navigate("/");
   };
+
+  const goShowpage = () => {
+    navigate("/showing");
+  };
+
+  let result;
 
   const handleClick = (e) => {
     //console.log(e.currentTarget);
@@ -29,23 +37,26 @@ const Drawing2 = () => {
     if (choice_num === 1) {
       document.getElementById("reuslt").textContent =
         document.getElementById("label_1").textContent;
+      result = document.getElementById("reuslt").textContent;
     } else if (choice_num === 2) {
       document.getElementById("reuslt").textContent =
         document.getElementById("label_2").textContent;
+      result = document.getElementById("reuslt").textContent;
     } else if (choice_num === 3) {
       document.getElementById("reuslt").textContent =
         document.getElementById("label_3").textContent;
+      result = document.getElementById("reuslt").textContent;
     } else if (choice_num === 4) {
       document.getElementById("reuslt").textContent =
         document.getElementById("label_4").textContent;
+      result = document.getElementById("reuslt").textContent;
     } else if (choice_num === 5) {
       document.getElementById("reuslt").textContent =
         document.getElementById("label_5").textContent;
+      result = document.getElementById("reuslt").textContent;
     }
-  };
-
-  const handleChange = (e) => {
-    console.log("변하는 중");
+    console.log(result);
+    setKeyword(result);
   };
 
   const sketch = (p5) => {
@@ -195,8 +206,7 @@ const Drawing2 = () => {
             onClick={handleClick}
             value={1}
           >
-            <span id="label_1" onChange={handleChange}></span>(
-            <span id="confidence1"></span>%)
+            <span id="label_1"></span>(<span id="confidence1"></span>%)
           </button>
           <button
             style={{ backgroundColor: "#FF8F60" }}
@@ -237,7 +247,9 @@ const Drawing2 = () => {
           <span id="ment">무엇을 그리셨나요? 5개 중 선택해주세요.</span>
         </p>
         <p className={styles.letstart}>작사를 시작하겠습니다</p>
-        <button className={styles.makeLyricsBT}>Start making</button>
+        <button className={styles.makeLyricsBT} onClick={goShowpage}>
+          Start making
+        </button>
       </div>
     </div>
   );
