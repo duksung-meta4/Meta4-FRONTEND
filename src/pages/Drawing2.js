@@ -15,10 +15,10 @@ const Drawing2 = () => {
   const goHomepage = () => {
     navigate("/");
   };
-
   const goShowpage = () => {
     navigate("/showing");
   };
+
 
   let result;
 
@@ -132,9 +132,6 @@ const Drawing2 = () => {
         console.error(error);
       }
 
-      // console.log(results[0].confidence);
-      // console.log(final_keyword);
-      // console.log(labelSpan1);
 
       labelSpan1.html(results[0].label);
       confidenceSpan1.html(Math.floor(100 * results[0].confidence));

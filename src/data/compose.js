@@ -147,7 +147,6 @@ export function playRNN() {
   // The model expects a quantized sequence, and ours was unquantized:
   const qns = mm.sequences.quantizeNoteSequence(PIG, 4);
 
-  console.log("실행 중");
   music_rnn
     .continueSequence(qns, rnn_steps, rnn_temperature)
     .then((sample) => rnnPlayer.start(sample));
