@@ -79,6 +79,7 @@ const Showing = () => {
             type="submit"
             className={styles.showingBtn}
             value="Generate Lyrics🎼"
+            style={{ cursor: "pointer" }}
           />
 
           <br></br>

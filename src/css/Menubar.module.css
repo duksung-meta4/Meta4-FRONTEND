@@ -1,6 +1,13 @@
 @media (min-width : 1130px){
     .menubarBody{
         width: 1130px;
+        margin: 35px auto;
+    }
+    .menubarBody button{
+        margin-right: 0px !important;
+    }
+    .logo {
+        margin-left: 0px !important;
     }
 }
 
@@ -9,6 +16,7 @@
     font-family: 'OpenSans-Bold';
     font-size: 35px;
     cursor: pointer;
+    margin-left: 70px;
 }
 
 .menubarBody{
@@ -16,7 +24,6 @@
     justify-content: space-between;
     align-items: center;
     margin: 35px auto;
-    padding: 0 70px;
 }
 
 .menubarBody ul li{
@@ -49,6 +56,7 @@
     border: none;
     transition: all 0.3s ease 0s;
     cursor: pointer;
+    margin-right: 70px;
 }
 
 .menubarBody button:hover{
