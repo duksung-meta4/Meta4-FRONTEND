@@ -1,7 +1,13 @@
-@media (min-width : 1440px){
+@media (min-width : 1130px){
     .menubarBody{
-        justify-content: center;
-        width: 1440px;
+        width: 1130px;
+        margin: 35px auto;
+    }
+    .menubarBody button{
+        margin-right: 0px !important;
+    }
+    .logo {
+        margin-left: 0px !important;
     }
 }
 
@@ -10,18 +16,14 @@
     font-family: 'OpenSans-Bold';
     font-size: 35px;
     cursor: pointer;
+    margin-left: 70px;
 }
 
 .menubarBody{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 35px;
-    margin-bottom: 35px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 100px;
-    padding-right: 100px;
+    margin: 35px auto;
 }
 
 .menubarBody ul li{
@@ -54,6 +56,7 @@
     border: none;
     transition: all 0.3s ease 0s;
     cursor: pointer;
+    margin-right: 70px;
 }
 
 .menubarBody button:hover{

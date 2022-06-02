@@ -3,19 +3,73 @@ import { ReactP5Wrapper } from "react-p5-wrapper";
 import styles from "../css/Drawing2.module.css";
 import { useNavigate } from "react-router-dom";
 import ml5 from "ml5";
+import pen from "../img/pen.png";
+import eraser from "../img/eraser.png";
+import fill from "../img/fill.png";
+import trash from "../img/trash.png";
+import { setKeyword } from "../Keyword";
 
 const Drawing2 = () => {
   const navigate = useNavigate();
+
   const goHomepage = () => {
     navigate("/");
+  };
+  const goShowpage = () => {
+    navigate("/showing");
+  };
+
+
+  let result;
+
+  const handleClick = (e) => {
+    //console.log(e.currentTarget);
+    //console.log(parseInt(e.currentTarget.value));
+    //console.log(document.getElementById("reuslt").innerText);
+
+    let wow = document.getElementById("wow");
+    let ment = document.getElementById("ment");
+
+    ment.style.display = "none";
+    wow.style.display = "block";
+
+    let choice_num = parseInt(e.currentTarget.value);
+    if (choice_num === 1) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_1").textContent;
+      result = document.getElementById("reuslt").textContent;
+    } else if (choice_num === 2) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_2").textContent;
+      result = document.getElementById("reuslt").textContent;
+    } else if (choice_num === 3) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_3").textContent;
+      result = document.getElementById("reuslt").textContent;
+    } else if (choice_num === 4) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_4").textContent;
+      result = document.getElementById("reuslt").textContent;
+    } else if (choice_num === 5) {
+      document.getElementById("reuslt").textContent =
+        document.getElementById("label_5").textContent;
+      result = document.getElementById("reuslt").textContent;
+    }
+    console.log(result);
+    setKeyword(result);
   };
 
   const sketch = (p5) => {
     let classifier;
     let canvas;
     let clearButton;
-    let labelSpan;
-    let confidenceSpan;
+    let labelSpan1, labelSpan2, labelSpan3, labelSpan4, labelSpan5;
+    let confidenceSpan1,
+      confidenceSpan2,
+      confidenceSpan3,
+      confidenceSpan4,
+      confidenceSpan5;
+    let stopbutton;
 
     p5.preload = () => {
       classifier = ml5.imageClassifier("DoodleNet", () => {
@@ -33,9 +87,31 @@ const Drawing2 = () => {
       clearButton.mousePressed(p5.clearCanvas);
 
       //결과
-      labelSpan = p5.select("#label");
-      confidenceSpan = p5.select("#confidence");
+
+      labelSpan1 = p5.select("#label_1");
+      confidenceSpan1 = p5.select("#confidence1");
+
+      labelSpan2 = p5.select("#label_2");
+      confidenceSpan2 = p5.select("#confidence2");
+
+      labelSpan3 = p5.select("#label_3");
+      confidenceSpan3 = p5.select("#confidence3");
+
+      labelSpan4 = p5.select("#label_4");
+      confidenceSpan4 = p5.select("#confidence4");
+
+      labelSpan5 = p5.select("#label_5");
+      confidenceSpan5 = p5.select("#confidence5");
+
+      //noLoop()버튼
+      stopbutton = p5.select("#stopbutton");
+      stopbutton.mousePressed(knockitoff);
     };
+
+    function knockitoff() {
+      console.log("멈춰!!");
+      p5.noLoop();
+    }
 
     p5.clearCanvas = () => {
       p5.background(255);
@@ -44,19 +120,34 @@ const Drawing2 = () => {
     p5.draw = () => {
       p5.strokeWeight(16);
       p5.stroke(0);
-      if (p5.mouseIsPressed) {
+      if (p5.mouseIsPressed === true) {
         p5.line(p5.pmouseX, p5.pmouseY, p5.mouseX, p5.mouseY);
       }
     };
 
     const gotResult = (error, results) => {
-      console.log("Classify Callback");
+      //console.log("Classify Callback");
+
       if (error) {
         console.error(error);
       }
-      console.log(results);
-      labelSpan.html(results[0].label);
-      confidenceSpan.html(Math.floor(100 * results[0].confidence));
+
+
+      labelSpan1.html(results[0].label);
+      confidenceSpan1.html(Math.floor(100 * results[0].confidence));
+
+      labelSpan2.html(results[1].label);
+      confidenceSpan2.html(Math.floor(100 * results[1].confidence));
+
+      labelSpan3.html(results[2].label);
+      confidenceSpan3.html(Math.floor(100 * results[2].confidence));
+
+      labelSpan4.html(results[3].label);
+      confidenceSpan4.html(Math.floor(100 * results[3].confidence));
+
+      labelSpan5.html(results[4].label);
+      confidenceSpan5.html(Math.floor(100 * results[4].confidence));
+
       classifier.classify(canvas, gotResult);
     };
   };
@@ -72,12 +163,104 @@ const Drawing2 = () => {
 
       {/* content영역 */}
       <div className={styles.drawingBody}>
-        <p>🎨 자유롭게 그림을 그려주세요!</p>
-        <button id="clearBtn">Clear Canvas</button>
+        <p className={styles.title}>🎨 자유롭게 그림을 그려주세요!</p>
+        <div className={styles.palette}>
+          <div className={styles.colorpalette}>
+            <div
+              className={styles.red}
+              style={{ backgroundColor: "#D8313A" }}
+            ></div>
+            <div
+              className={styles.orange}
+              style={{ backgroundColor: "#FF7F49" }}
+            ></div>
+            <div
+              className={styles.yellow}
+              style={{ backgroundColor: "#FFC000" }}
+            ></div>
+            <div
+              className={styles.green}
+              style={{ backgroundColor: "#77A56B" }}
+            ></div>
+            <div
+              className={styles.skyblue}
+              style={{ backgroundColor: "#6ED5D0" }}
+            ></div>
+            <div
+              className={styles.blue}
+              style={{ backgroundColor: "#47729A" }}
+            ></div>
+            <div
+              className={styles.purple}
+              style={{ backgroundColor: "#7D64AD" }}
+            ></div>
+            <div
+              className={styles.black}
+              style={{ backgroundColor: "#272727" }}
+            ></div>
+          </div>
+          <div className={styles.toolpalette}>
+            <img src={pen} alt="pen.png" />
+            <img src={eraser} alt="pen.png" />
+            <img src={fill} alt="pen.png" />
+            <img id="clearBtn" src={trash} alt="pen.png" />
+          </div>
+        </div>
         <ReactP5Wrapper sketch={sketch}></ReactP5Wrapper>
-        <p>
-          <span id="label"></span>(<span id="confidence"></span>%)
+        <p className={styles.resultRanking}>
+          <button
+            style={{ backgroundColor: "#EB8287" }}
+            onClick={handleClick}
+            value={1}
+          >
+            <span id="label_1"></span>(<span id="confidence1"></span>%)
+          </button>
+          <button
+            style={{ backgroundColor: "#FF8F60" }}
+            onClick={handleClick}
+            value={2}
+          >
+            <span id="label_2"></span>(<span id="confidence2"></span>%)
+          </button>
+          <button
+            style={{ backgroundColor: "#FFF279" }}
+            onClick={handleClick}
+            value={3}
+          >
+            <span id="label_3"></span>(<span id="confidence3"></span>%)
+          </button>
+          <button
+            style={{ backgroundColor: "#1DDDC4" }}
+            onClick={handleClick}
+            value={4}
+          >
+            <span id="label_4"></span>(<span id="confidence4"></span>%)
+          </button>
+          <button
+            style={{ backgroundColor: "#54ACFE" }}
+            onClick={handleClick}
+            value={5}
+          >
+            <span id="label_5"></span>(<span id="confidence5"></span>%)
+          </button>
         </p>
+        <p className={styles.drawresult}>
+          <span id="wow" style={{ display: "none" }}>
+            <span style={{ color: "#0085A1" }} id="reuslt">
+              line
+            </span>
+            을 그리셨군요!
+          </span>
+          <span id="ment">무엇을 그리셨나요? 5개 중 선택해주세요.</span>
+        </p>
+        <p className={styles.letstart}>작사를 시작하겠습니다</p>
+        <button
+          id="stopbutton"
+          className={styles.makeLyricsBT}
+          onClick={goShowpage}
+        >
+          Start making
+        </button>
       </div>
     </div>
   );

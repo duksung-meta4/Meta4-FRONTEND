@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const goDrawingPage = () => {
-    navigate("/drawing");
+    navigate("/drawing2");
   };
   return (
     <div>

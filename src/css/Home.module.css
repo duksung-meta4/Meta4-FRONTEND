@@ -1,20 +1,48 @@
 .content{
-    width: 1440px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
+    width: 1130px;
 }
 
 .gate{
-    background-image: url('../img/GateImg.svg');
-    background-size: auto 960px;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('../img/GateImg.svg');
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 960px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 630px;
 }
 
 .gate h1{
     color: white;
     font-size: 75px;
+    margin-bottom: 20px;
+}
+
+.gate p{
+    font-family: 'OpenSans-Light';
+    color: white;
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.gate button{
+    font-family: 'OpenSans-Regular';
+    width: 400px;
+    font-size: 30px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.gate button:hover{
+    color: #2A2A2A;
+    background-color: white;
 }
