@@ -23,9 +23,6 @@ const Drawing2 = () => {
   let result;
 
   const handleClick = (e) => {
-    //console.log(e.currentTarget);
-    //console.log(parseInt(e.currentTarget.value));
-    //console.log(document.getElementById("reuslt").innerText);
 
     let wow = document.getElementById("wow");
     let ment = document.getElementById("ment");

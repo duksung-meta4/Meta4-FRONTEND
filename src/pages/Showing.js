@@ -1,7 +1,6 @@
 import { React, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { findPrompts } from "../data/prompts.js";
-import { playRNN } from "../data/compose.js";
 import styles from "../css/Showing.module.css";
 import axios from "axios";
 import { getKeyword } from "../Keyword";
@@ -22,6 +21,8 @@ const Showing = () => {
 
     if (keyword === "pig") {
       setLyricInput("돼지");
+    } else if (keyword === "elephant") {
+      setLyricInput("코끼리");
     }
   }, [keyword]);
 
@@ -42,10 +43,6 @@ const Showing = () => {
         console.log("Network Error : ", error);
       });
   }
-
-  // const handleClick = () => {
-  //   playRNN();
-  // };
 
   useEffect(() => {
     setPrompts(findPrompts(lyricInput));
